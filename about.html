@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>About</title>
+<meta charset="utf-8">
+
+<style>
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #f5f5f5;
+}
+
+.sidebar {
+  width: 260px;
+  height: 100vh;
+  background: #ffffff;
+  padding: 30px;
+  box-shadow: 2px 0 10px rgba(0,0,0,0.1);
+  position: fixed;
+  top: 0;
+  left: 0;
+  box-sizing: border-box;
+}
+
+.sidebar h2 {
+  font-size: 28px;
+  margin-bottom: 40px;
+}
+
+.sidebar a {
+  display: block;
+  text-decoration: none;
+  font-size: 18px;
+  color: #333;
+  margin: 18px 0;
+  transition: 0.3s;
+}
+
+.sidebar a:hover {
+  color: #007acc;
+  margin-left: 5px;
+}
+.main {
+  margin-left: 260px;
+  padding: 50px;
+  width: calc(100% - 260px);
+  min-height: 100vh;
+  text-align: center;
+  box-sizing: border-box;
+
+  background: url("background.jpg") no-repeat center center;
+  background-size: cover;
+}
+
+
+
+.main {
+  margin-left: 260px;
+  padding: 60px;
+  width: calc(100% - 260px);
+}
+
+.details-box {
+  background: white;
+  padding: 30px;
+  max-width: 500px;
+  margin: auto;
+  border-radius: 15px;
+  border: 2px solid #007acc;
+  box-shadow: 0 0 20px rgba(0,0,0,0.2);
+  text-align: justify;
+}
+
+.details-box h2 {
+  text-align: center;
+}
+footer {
+  background: #1e1e2f;
+  color: white;
+  padding: 15px;
+  text-align: center;
+
+  margin-left: 260px;
+  width: calc(100% - 260px);
+  box-sizing: border-box;
+}
+
+</style>
+</head>
+
+<body>
+
+
+<div class="sidebar">
+<p id="datetime"></p>
+  <h2>Menu</h2>
+  <a href="index">Home</a>
+  <a href="about.html">About</a>
+  <a href="contact.html">Contact</a>
+  <a href="Achievement.html">achievement</a>
+  <a href="Gallery.html">Gallery</a>
+  
+</div>
+
+
+<div class="main">
+  <div class="details-box">
+    <h2>Personal info</h2>
+
+    <p><strong>Name:</strong> Suzanne Anthony</p>
+    <p><strong>Age:</strong> 26</p>
+    <p><strong>Birth date:</strong></p>25,11,1997.
+    <p><strong>Gender:</strong> Female</p>
+    <p><strong>Religion:</strong></p> Christian.
+    <p><strong>Address:</strong> Kampung Mentu Simunjan 94800</p>
+    <p><strong>Hobby:</strong> Listening to music, Watching drama</p>
+    <p><strong> Education:</strong> 1.Sk Mentu Simunjan 2003-2008(primary)</p>
+    2.SMK Serian 2009-2015(secondary)</p> 3.Diploma in Business Studies 2017-2020(Kuching Polytechnic Sarawak)</p>
+    <p><strong>Sibling:</strong></p> Eldest of 3 siblings.
+    <p><strong>status:</strong>Married</p>
+    <p><strong>Favorite Song:</strong> Fantastic baby - bigbang</p>
+
+<audio controls>
+  <source src="Fantastic baby.mp3" type="audio/mpeg">
+</audio>
+
+  </div>
+</div>
+<footer>
+  <p> @ 2026 Kyle Maxer|This website is created to fulfill the requirement of IMD318 individual Assignment</p>
+</footer>
+<script>
+function updateDateTime() {
+  const now = new Date();
+  document.getElementById("datetime").innerHTML = 
+    now.toLocaleDateString() + " | " + now.toLocaleTimeString();
+}
+
+updateDateTime();
+setInterval(updateDateTime, 1000);
+</script>
+
+</body>
+</html>

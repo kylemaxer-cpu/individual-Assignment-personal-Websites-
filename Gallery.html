@@ -1,0 +1,208 @@
+<DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Gallery</title>
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <style>
+    .main {
+  margin-left: 260px;
+  padding: 50px;
+  width: calc(100% - 260px);
+  text-align: center;
+
+  background: url("background.jpg") no-repeat center center;
+  background-size: cover;
+  min-height: 100vh;
+}
+
+    .sidebar {
+      width: 260px;
+      height: 100vh;
+      background: #ffffff;
+      padding: 30px;
+      box-shadow: 2px 0 10px rgba(0,0,0,0.1);
+      position: fixed;
+    }
+
+    .sidebar h2 {
+      font-size: 26px;
+      margin-bottom: 30px;
+    }
+
+    .sidebar a {
+      display: block;
+      text-decoration: none;
+      color: #333;
+      font-size: 18px;
+      margin: 15px 0;
+    }
+
+    .sidebar a:hover {
+      color: #007acc;
+      margin-left: 5px;
+    }
+
+    .main {
+      margin-left: 260px;
+      padding: 40px;
+    }
+
+    .col-sm-3 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .gallery-img {
+      width: 90%;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+      cursor: pointer;
+      transition: transform 0.3s;
+    }
+
+    .gallery-img:hover {
+      transform: scale(1.05);
+    }
+
+    .gallery-video {
+      width: 90%;
+      height: 300px;
+      object-fit: cover;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    }
+.video-wrapper {
+  width: 90%;
+  aspect-ratio: 9 / 16;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  margin: auto;
+}
+
+.video-wrapper video {
+  width: 100%;
+  height: 100%;
+}
+footer {
+  background: #1e1e2f;
+  color: white;
+  padding: 15px;
+  text-align: center;
+
+  margin-left: 260px;
+  width: calc(100% - 260px);
+  box-sizing: border-box;
+}
+
+
+    .header {
+      background: #0d6efd;
+      color: white;
+      padding: 30px;
+      text-align: center;
+      border-radius: 10px;
+      margin-bottom: 30px;
+    }
+  </style>
+</head>
+
+<body>
+
+<div class="sidebar">
+<p id="datetime"></p>
+  <h2>Menu</h2>
+  <a href="index.html">Home</a>
+  <a href="about.html">About</a>
+  <a href="contact.html">Contact</a>
+  <a href="Achievement.html">Achievement</a>
+  <a href="Gallery.html">Gallery</a>
+</div>
+
+<div class="main">
+
+  <div class="header">
+    <h1>Gallery</h1>
+    <p>Welcome To Suzanne Gallery!</p>
+  </div>
+
+  <div class="container-fluid">
+    <div class="row">
+
+      <div class="col-sm-3">
+        <img src="image1.png" class="gallery-img" alt="image 1">
+      </div>
+      <div class="col-sm-3">
+        <img src="image2.png" class="gallery-img" alt="image 2">
+      </div>
+      <div class="col-sm-3">
+        <img src="image4.png" class="gallery-img" alt="image 4">
+      </div>
+      <div class="col-sm-3">
+        <img src="image5.png" class="gallery-img" alt="image 5">
+      </div>
+      <div class="col-sm-3">
+        <img src="image6.png" class="gallery-img" alt="image 6">
+      </div>
+      <div class="col-sm-3">
+        <img src="image7.png" class="gallery-img" alt="image 7">
+      </div>
+      <div class="col-sm-3">
+        <img src="image8.png" class="gallery-img" alt="image 8">
+      </div>
+
+      <div class="col-sm-3">
+        <video class="gallery-video" controls>
+          <source src="vid1.mp4" type="video/mp4">
+        </video>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="imageModal" tabindex="-1">
+  <div class="modal-dialog modal-dialog-centered modal-lg">
+    <div class="modal-content">
+      <div class="modal-body text-center">
+        <img id="modalImage" class="img-fluid rounded">
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+<script>
+  const images = document.querySelectorAll(".gallery-img");
+  const modalImage = document.getElementById("modalImage");
+
+  images.forEach(img => {
+    img.addEventListener("click", () => {
+      modalImage.src = img.src;
+      new bootstrap.Modal(document.getElementById("imageModal")).show();
+    });
+  });
+</script>
+<footer>
+  <p> @ 2026 Kyle Maxer|This website is created to fulfill the requirement of IMD318 individual Assignment</p>
+</footer>
+<script>
+function updateDateTime() {
+  const now = new Date();
+  document.getElementById("datetime").innerHTML = 
+    now.toLocaleDateString() + " | " + now.toLocaleTimeString();
+}
+
+updateDateTime();
+setInterval(updateDateTime, 1000);
+</script>
+
+</body>
+</html>
